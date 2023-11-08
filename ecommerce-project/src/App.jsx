@@ -1,24 +1,23 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import 'tailwindcss/tailwind.css';
+import "tailwindcss/tailwind.css";
 import Product from "./Pages/Product";
 import Checkout from "./Pages/Checkout";
 import Home from "./Pages/Home";
 
 const router = createBrowserRouter([
-  
   {
-path:"/",
-element: <Home/>
+    path: "/",
+    element: <Home />,
   },
   {
     path: "/products",
-    element: <Product/>
+    element: <Product />,
   },
   {
     path: "checkout",
-    element: <Checkout/>
-  }
+    element: <Checkout />,
+  },
 ]);
 
 function App() {

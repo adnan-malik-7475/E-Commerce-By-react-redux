@@ -1,12 +1,8 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import SVG from "../components/SVG";
 import { addCartItem, moveAllToCart } from "../app/features/Slice";
 import { useDispatch } from "react-redux";
-
-
-
 
 const Products = () => {
   const images = [
@@ -109,9 +105,9 @@ const Products = () => {
     <div>
       <Navbar />
       <hr />
-    <div className="flex items-center w-[89%] ml-auto justify-between mb-14 mt-20 ">
-        <div className="text-2xl font-semibold">Total Products ({images.length})</div>
-        <button className=" px-16 py-4 mr-10 text-lg font-bold border border-black border-opacity-[0.5] rounded-md" onClick={()=>moveAllCart(images)}>
+      <div className="flex items-center w-[89%] ml-auto justify-between mb-14 mt-20 ">
+        <div className="text-2xl font-semi-bold">Total Products ({images.length})</div>
+        <button className=" px-16 py-4 mr-10 text-lg font-semi-bold border border-black border-opacity-[0.5] rounded-md" onClick={() => moveAllCart(images)}>
           Move All to Cart
         </button>
       </div>
@@ -151,7 +147,7 @@ const Products = () => {
                     strokeLinecap="round"
                     strokeWidth="1.5"
                   />
-                  <button className="text-white" onClick={()=>addToCart(image)}>Add to cart</button>
+                  <button className="text-white" onClick={() => addToCart(image)}>Add to cart</button>
                 </div>
               </div>
             </div>

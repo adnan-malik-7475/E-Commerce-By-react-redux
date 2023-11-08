@@ -7,6 +7,7 @@ const productsSlice = createSlice({
     favouriteProducts: [], 
     moveAllToCart: [],
     searchTerm: "",
+    cartQuantity:0
   }, 
   reducers: {
     addCartItem(state, action) {
@@ -23,8 +24,8 @@ const productsSlice = createSlice({
     },
   
     moveAllToCart(state, action) {
-        console.log("moveAllToCart")
-        state.moveAllToCart.push(...action.payload);
+       
+        state.cart=[...action.payload];
         
       },
     updateCartItemQuantity(state, action) {

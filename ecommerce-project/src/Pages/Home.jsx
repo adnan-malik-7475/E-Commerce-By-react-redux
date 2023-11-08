@@ -120,7 +120,7 @@ const Home = () => {
 
       <hr />
 
-      <div className="w-[70%] m-auto h-92 bg-black  flex flex-row   ">
+      <div className="w-[1170px] m-auto h-[344px] bg-black  flex flex-row mt-[40px]   ">
         <div className="ml-16">
           <div className="flex flex-row  mt-6 ">
             <img className="w-24 h-20" src={appleLogo} />
@@ -142,7 +142,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="w-4/5 m-auto">
+      <div className="w-4/5 m-auto mt-[116px]">
         <div className="flex flex-wrap w-full justify-center ">
           {allImages.map((image, index) => (
             <div key={index} className="mx-2 my-2 relative">
