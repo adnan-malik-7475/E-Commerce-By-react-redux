@@ -2,12 +2,13 @@ import { React, useState } from "react";
 import Navbar from "../components/Navbar";
 import SVG from "../components/SVG";
 import Banner from "../assets/banner.jpg";
-
+import Icon from '../assets/arrow-head.png'
 import appleLogo from "../assets/apple-emblem.jpg";
+import { addFavouriteItem } from "../app/features/Slice";
+import { useDispatch } from "react-redux";
+
 
 const Home = () => {
-  const [loadImages, setImages] = useState(4);
-  const [searchData, setsearchData] = useState("");
   const images = [
     
     {
@@ -95,6 +96,19 @@ const Home = () => {
     },
   ];
 
+  const [loadImages, setImages] = useState(4);
+  const moreImage = images.slice(0, loadImages);
+  
+
+    const dispatch = useDispatch();
+    const addToFavourite = (images) => {
+      dispatch(addFavouriteItem(images));
+      console.log("addToCart", images);
+    };
+
+
+  
+
   const allImages = images.slice(0, loadImages);
   const handleLoadImages = () => {
     setImages(loadImages + (images.length - loadImages));
@@ -118,15 +132,7 @@ const Home = () => {
 
           <button className="text-white mt-8 text-2xl underline flex flex-row  ml-8">
             Shop Now{" "}
-            <SVG
-              width={26}
-              height={26}
-              viewBox="0 0 24 24"
-              strokeColor="black"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
+            <img src={Icon} className="m-2"  />
           </button>
         </div>
 
@@ -157,8 +163,10 @@ const Home = () => {
               <div className="absolute top-3 left-3 px-2 py-1 text-white rounded-lg bg-rose-600">
                 {image.discountInPercentage}%
               </div>
-              <div className="absolute top-2 right-3 bg-white rounded-full p-1">
-                <SVG
+              <div
+                className="absolute top-2 right-3 bg-white rounded-full p-1"
+                onClick={() => addToFavourite(image)}
+              >                <SVG
                   width={32}
                   height={32}
                   viewBox="0 0 32 32"

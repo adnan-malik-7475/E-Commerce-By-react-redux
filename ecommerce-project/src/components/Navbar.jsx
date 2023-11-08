@@ -1,10 +1,18 @@
 import React from "react";
 import SVG from "./SVG";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
+
+
+
 
 function Navbar() {
+  const cart = useSelector((state) => state.products.cart);
+  const favouriteProducts = useSelector((state) => state.products.favouriteProducts);
+  const products = useSelector((state) => state.products.moveAllToCart);
   return (
-    <nav class="bg-white flex justify-between items-center px-4 py-5 w-[70%] m-auto">
+    <nav className="bg-white flex justify-between items-center px-4 py-5 w-[70%] m-auto">
       <div className="flex w-1/3 justify-between items-center">
         <div className="font-bold text-4xl">Exclusive</div>
         <div className="flex gap-10">
@@ -43,6 +51,7 @@ function Navbar() {
             strokeWidth="1.5"
           />
         </div>
+        <div className="relative">
         <SVG
           width={32}
           height={32}
@@ -52,6 +61,13 @@ function Navbar() {
           strokeLinecap="round"
           strokeWidth="1.5"
         />
+                  <div className="absolute bottom-4 left-4 bg-[#DB4444] rounded-full px-2 text-white">{favouriteProducts.length}</div>
+
+        </div>
+      
+       <Link
+            to="/checkout">
+                <div className="relative">
         <SVG
           width={32}
           height={32}
@@ -64,6 +80,11 @@ function Navbar() {
           strokeLinecap="round"
           strokeWidth="1.5"
         />
+        
+        <div className="absolute bottom-4 left-4 bg-[#DB4444] rounded-full px-2 text-white">{cart.length+products.length}</div>
+
+        </div>
+        </Link>
       </div>
     </nav>
   );

@@ -4,26 +4,29 @@ const productsSlice = createSlice({
   name: "products",
   initialState: {
     cart: [],
-    favouriteProducts: [],
+    favouriteProducts: [], 
     moveAllToCart: [],
     searchTerm: "",
-  },
+  }, 
   reducers: {
     addCartItem(state, action) {
       state.cart.push(action.payload);
     },
-    moveAllToCart(state, action) {
-      state.moveAllToCart.push(...action.payload);
-    },
+    setSearchTerm(state, action) {
+        state.searchTerm = action.payload;
+      },
     addFavouriteItem(state, action) {
       state.favouriteProducts.push(action.payload);
     },
-    removeAllCartItems(state) {
+    removeAll(state) {
       state.cart = [];
     },
-    setSearchTerm(state, action) {
-      state.searchTerm = action.payload;
-    },
+  
+    moveAllToCart(state, action) {
+        console.log("moveAllToCart")
+        state.moveAllToCart.push(...action.payload);
+        
+      },
     updateCartItemQuantity(state, action) {
       const { id, quantity } = action.payload;
       const product = state.cart.find((item) => item.id === id);
@@ -38,7 +41,7 @@ export const {
   addCartItem,
   moveAllToCart,
   addFavouriteItem,
-  removeAllCartItems,
+  removeAll,
   setSearchTerm,
   updateCartItemQuantity,
 } = productsSlice.actions;

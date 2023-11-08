@@ -1,5 +1,6 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import 'tailwindcss/tailwind.css';
 import Product from "./Pages/Product";
 import Checkout from "./Pages/Checkout";
 import Home from "./Pages/Home";
