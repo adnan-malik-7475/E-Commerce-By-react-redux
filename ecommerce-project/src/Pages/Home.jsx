@@ -1,16 +1,14 @@
 import { React, useState } from "react";
 import Navbar from "../components/Navbar";
+import { useDispatch } from "react-redux";
 import SVG from "../components/SVG";
 import Banner from "../assets/banner.jpg";
-import Icon from '../assets/arrow-head.png'
+import Icon from "../assets/arrow-head.png";
 import appleLogo from "../assets/apple-emblem.jpg";
 import { addFavouriteItem } from "../app/features/Slice";
-import { useDispatch } from "react-redux";
-
 
 const Home = () => {
   const images = [
-    
     {
       title: "Product 2",
       newPrice: "75",
@@ -19,7 +17,7 @@ const Home = () => {
       image:
         "https://www.kasandbox.org/programming-images/avatars/spunky-sam-green.png",
     },
-    
+
     {
       title: "Product 1",
       newPrice: "120",
@@ -98,21 +96,19 @@ const Home = () => {
 
   const [loadImages, setImages] = useState(4);
   const moreImage = images.slice(0, loadImages);
-  
 
-    const dispatch = useDispatch();
-    const addToFavourite = (images) => {
-      dispatch(addFavouriteItem(images));
-      console.log("addToCart", images);
-    };
-
-
-  
+  const dispatch = useDispatch();
+  const addToFavourite = (images) => {
+    dispatch(addFavouriteItem(images));
+    console.log("addToCart", images);
+  };
 
   const allImages = images.slice(0, loadImages);
   const handleLoadImages = () => {
     setImages(loadImages + (images.length - loadImages));
   };
+
+  const [color, setColor] = "none";
 
   return (
     <div>
@@ -131,8 +127,7 @@ const Home = () => {
           <h1 className="text-white  w-[280px] text-5xl  mt-4">off Voucher</h1>
 
           <button className="text-white mt-8 text-2xl underline flex flex-row  ml-8">
-            Shop Now{" "}
-            <img src={Icon} className="m-2"  />
+            Shop Now <img src={Icon} className="m-2" />
           </button>
         </div>
 
@@ -166,7 +161,9 @@ const Home = () => {
               <div
                 className="absolute top-2 right-3 bg-white rounded-full p-1"
                 onClick={() => addToFavourite(image)}
-              >                <SVG
+              >
+                {" "}
+                <SVG
                   width={32}
                   height={32}
                   viewBox="0 0 32 32"

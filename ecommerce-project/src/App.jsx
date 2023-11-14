@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     path: "checkout",
     element: <Checkout />,
   },
-]);
+]); 
 
 function App() {
   return (

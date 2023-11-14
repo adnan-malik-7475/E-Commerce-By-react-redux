@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 import Navbar from "../components/Navbar";
 import SVG from "../components/SVG";
 import { addCartItem, moveAllToCart } from "../app/features/Slice";
@@ -106,8 +106,15 @@ const Products = () => {
       <Navbar />
       <hr />
       <div className="flex items-center w-[89%] ml-auto justify-between mb-14 mt-20 ">
-        <div className="text-2xl font-semi-bold">Total Products ({images.length})</div>
-        <button className=" px-16 py-4 mr-10 text-lg font-semi-bold border border-black border-opacity-[0.5] rounded-md" onClick={() => moveAllCart(images)}>
+        
+        <div className="text-2xl font-semi-bold">
+          Total Products ({images.length})
+        </div>
+        <button
+          className=" px-16 py-4 mr-10 text-lg font-semi-bold border border-black border-opacity-[0.5] rounded-md"
+          onClick={() => moveAllCart(images)}
+
+        >
           Move All to Cart
         </button>
       </div>
@@ -120,10 +127,10 @@ const Products = () => {
                 src={image.image}
                 alt={image.alt}
               />
-              <div className="pt-6 text-lg font-bold">
+              <div className="pt-6 text-lg font-semibold">
                 <h1>{image.title}</h1>
-                <div className="flex gap-5">
-                  <h1 className="text-[#DB4444]">${image.newPrice}</h1>
+                <div className="flex gap-5 font-medium">
+                  newPrice<h1 className="text-[#DB4444]">${image.newPrice}</h1>
                   <h1 className="line-through text-[#000000] text-opacity-[0.5]">
                     ${image.oldPrice}
                   </h1>
@@ -147,7 +154,12 @@ const Products = () => {
                     strokeLinecap="round"
                     strokeWidth="1.5"
                   />
-                  <button className="text-white" onClick={() => addToCart(image)}>Add to cart</button>
+                  <button
+                    className="text-white"
+                    onClick={() => addToCart(image)}
+                  >
+                    Add to cart
+                  </button>
                 </div>
               </div>
             </div>
