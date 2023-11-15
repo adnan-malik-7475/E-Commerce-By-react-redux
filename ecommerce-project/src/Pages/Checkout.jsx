@@ -1,4 +1,4 @@
-import React, { useState,useRef } from "react";
+import React, { useState, useRef } from "react";
 
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
@@ -7,7 +7,6 @@ import { useDispatch } from "react-redux/es/hooks/useDispatch";
 import { removeAll } from "/src/app/features/Slice";
 import ReactToPrint from "react-to-print";
 
-
 function Checkout() {
   const cartProducts = useSelector((state) => state.products.cart);
   console.log(cartProducts);
@@ -15,12 +14,12 @@ function Checkout() {
   const removeToCart = () => {
     dispatch(removeAll());
   };
-  const componentRef = useRef ()
+  const componentRef = useRef();
   return (
     <div>
       <Navbar />
       <hr />
-      <div  className="w-[78%] m-auto">
+      <div className="w-[78%] m-auto">
         <div className="mt-16 mb-24">
           <div className="flex gap-3 text-lg text-gray-500 ">
             <Link to="/">Home</Link>
@@ -80,7 +79,10 @@ function Checkout() {
             Remove All
           </button>
         </div>
-        <div ref={componentRef}  className="rounded-md border-black border-2 mt-16 mb-4 w-1/3 py-8 px-4">
+        <div
+          ref={componentRef}
+          className="rounded-md border-black border-2 mt-16 mb-4 w-1/3 py-8 px-4"
+        >
           <div className="font-bold text-xl">Cart Total</div>
           <div className="flex justify-between mt-4">
             <div>Subtotal:</div>
@@ -96,16 +98,16 @@ function Checkout() {
             <div>Total:</div>
             <div>$1750</div>
           </div>
-          <div  className="flex justify-center mt-8">
-          <ReactToPrint 
-          trigger={()=> <button className="px-10 py-4 rounded-md text-[#FAFAFA] bg-[#DB4444]">
-          Download Receipt
-        </button>} 
-        content={()=> componentRef.current} />
-</div>
-         
-           
-          
+          <div className="flex justify-center mt-8">
+            <ReactToPrint
+              trigger={() => (
+                <button className="px-10 py-4 rounded-md text-[#FAFAFA] bg-[#DB4444]">
+                  Download Receipt
+                </button>
+              )}
+              content={() => componentRef.current}
+            />
+          </div>
         </div>
       </div>
     </div>

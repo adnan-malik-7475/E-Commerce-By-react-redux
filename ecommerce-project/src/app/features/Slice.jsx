@@ -11,8 +11,17 @@ const productsSlice = createSlice({
   },
   reducers: {
     addCartItem(state, action) {
-      state.cart.push(action.payload);
+      const productToAdd = action.payload;
+
+      const productInCart = state.cart.find(
+        (item) => item.title === productToAdd.title
+      );
+
+      if (!productInCart) {
+        state.cart.push(productToAdd);
+      }
     },
+
     setSearchTerm(state, action) {
       state.searchTerm = action.payload;
     },

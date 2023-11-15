@@ -93,7 +93,7 @@ const Products = () => {
   const addToCart = (image) => {
     dispatch(addCartItem(image));
     console.log("addToCart", image);
-    setCartCount(cartCount + 1);
+    setCartCount(cartCount);
   };
 
   const moveAllCart = () => {

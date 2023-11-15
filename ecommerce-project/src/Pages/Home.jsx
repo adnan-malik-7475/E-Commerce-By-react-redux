@@ -100,16 +100,18 @@ const Home = () => {
   const dispatch = useDispatch();
   const addToFavourite = (images) => {
     dispatch(addFavouriteItem(images));
-    console.log("addToCart", images);
+    const productIndex = moreImage.findIndex(
+      (item) => item.title === images.title
+    );
+    setFavtProduct([...favtProduct, productIndex]);
   };
 
   const allImages = images.slice(0, loadImages);
   const handleLoadImages = () => {
     setImages(loadImages + (images.length - loadImages));
+   
   };
-
-  const [color, setColor] = "none";
-
+  const [favtProduct, setFavtProduct] = useState([]);
   return (
     <div>
       <Navbar />
@@ -168,9 +170,13 @@ const Home = () => {
                   height={32}
                   viewBox="0 0 32 32"
                   pathName="Wishlist"
-                  strokeColor="black"
                   strokeLinecap="round"
+                  strokeColor={
+                  favtProduct.includes(index) ? "none" : "black"}
+                  
                   strokeWidth="1.5"
+
+                  fill={favtProduct.includes(index) ? "red" : "none"}
                 />
               </div>
             </div>
