@@ -7,7 +7,8 @@ const productsSlice = createSlice({
     favouriteProducts: [],
     moveAllToCart: [],
     searchTerm: "",
-    cartQuantity: 0,
+    cartTotalQuantity: 0,
+    cartTotalAmount:0,
   },
   reducers: {
     addCartItem(state, action) {
@@ -35,22 +36,42 @@ const productsSlice = createSlice({
     moveAllToCart(state, action) {
       state.cart = [...action.payload];
     },
-    updateCartItemQuantity(state, action) {
-      const { id, quantity } = action.payload;
-      const product = state.cart.find((item) => item.id === id);
+    increaseQuantity(state, action) {
+      const productTitle = action.payload;
+      const product = state.cart.find(
+        (product) => product.title == productTitle
+      );
       if (product) {
-        product.quantity = quantity;
+        product.quantity += 1;
       }
     },
+
+    decreaseQuantity(state, action) {
+      const productTitle = action.payload;
+      const product = state.cart.find(
+        (product) => product.title == productTitle
+      );
+      if (product && product.quantity > 1) {
+        product.quantity -= 1;
+      }
+    },
+
+    
+
+    
   },
 });
 
 export const {
   addCartItem,
+  
   moveAllToCart,
   addFavouriteItem,
   removeAll,
   setSearchTerm,
   updateCartItemQuantity,
+  increaseQuantity,
+  decreaseQuantity,
+  getTotals
 } = productsSlice.actions;
 export default productsSlice.reducer;

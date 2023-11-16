@@ -109,7 +109,6 @@ const Home = () => {
   const allImages = images.slice(0, loadImages);
   const handleLoadImages = () => {
     setImages(loadImages + (images.length - loadImages));
-   
   };
   const [favtProduct, setFavtProduct] = useState([]);
   return (
@@ -171,11 +170,8 @@ const Home = () => {
                   viewBox="0 0 32 32"
                   pathName="Wishlist"
                   strokeLinecap="round"
-                  strokeColor={
-                  favtProduct.includes(index) ? "none" : "black"}
-                  
+                  strokeColor={favtProduct.includes(index) ? "none" : "black"}
                   strokeWidth="1.5"
-
                   fill={favtProduct.includes(index) ? "red" : "none"}
                 />
               </div>
