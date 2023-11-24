@@ -1,4 +1,4 @@
-import React, { useState,useRef } from "react";
+import React, { useState, useRef } from "react";
 import Navbar from "../components/Navbar";
 import SVG from "../components/SVG";
 import { addCartItem, moveAllToCart } from "../app/features/Slice";
@@ -8,23 +8,21 @@ const Products = () => {
   const images = [
     {
       title: "Product 1",
-      quantity:1,
+      quantity: 1,
       newPrice: "120",
       oldPrice: "160",
       discountInPercentage: "20",
       image:
         "https://www.kasandbox.org/programming-images/avatars/spunky-sam.png",
-       
     },
     {
       title: "Product 2",
-      quantity:1,
+      quantity: 1,
       newPrice: "75",
       oldPrice: "100",
       discountInPercentage: "0",
       image:
         "https://www.kasandbox.org/programming-images/avatars/spunky-sam-green.png",
-       
     },
     {
       title: "Product 3",
@@ -33,7 +31,7 @@ const Products = () => {
       discountInPercentage: "16.67",
       image:
         "https://www.kasandbox.org/programming-images/avatars/purple-pi.png",
-        quantity:1
+      quantity: 1,
     },
     {
       title: "Product 4",
@@ -42,11 +40,11 @@ const Products = () => {
       discountInPercentage: "20",
       image:
         "https://www.kasandbox.org/programming-images/avatars/purple-pi-teal.png",
-        quantity:1
+      quantity: 1,
     },
     {
       title: "Product 5",
-      quantity:1,
+      quantity: 1,
       newPrice: "90",
       oldPrice: "120",
       discountInPercentage: "0",
@@ -60,7 +58,7 @@ const Products = () => {
       discountInPercentage: "25",
       image:
         "https://www.kasandbox.org/programming-images/avatars/primosaur-ultimate.png",
-        quantity:1
+      quantity: 1,
     },
     {
       title: "Product 7",
@@ -69,7 +67,7 @@ const Products = () => {
       discountInPercentage: "0",
       image:
         "https://www.kasandbox.org/programming-images/avatars/primosaur-tree.png",
-        quantity:1
+      quantity: 1,
     },
     {
       title: "Product 8",
@@ -78,7 +76,7 @@ const Products = () => {
       discountInPercentage: "22.22",
       image:
         "https://www.kasandbox.org/programming-images/avatars/primosaur-sapling.png",
-        quantity:1
+      quantity: 1,
     },
     {
       title: "Product 9",
@@ -87,7 +85,7 @@ const Products = () => {
       discountInPercentage: "16.67",
       image:
         "https://www.kasandbox.org/programming-images/avatars/orange-juice-squid.png",
-        quantity:1
+      quantity: 1,
     },
     {
       title: "Product 10",
@@ -96,7 +94,7 @@ const Products = () => {
       discountInPercentage: "21.43",
       image:
         "https://www.kasandbox.org/programming-images/avatars/old-spice-man.png",
-        quantity:1
+      quantity: 1,
     },
   ];
 
@@ -118,14 +116,12 @@ const Products = () => {
       <Navbar />
       <hr />
       <div className="flex items-center w-[89%] ml-auto justify-between mb-14 mt-20 ">
-        
         <div className="text-2xl font-semi-bold">
           Total Products ({images.length})
         </div>
         <button
           className=" px-16 py-4 mr-10 text-lg font-semi-bold border border-black border-opacity-[0.5] rounded-md"
           onClick={() => moveAllCart(images)}
-
         >
           Move All to Cart
         </button>

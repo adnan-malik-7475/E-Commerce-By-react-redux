@@ -8,7 +8,7 @@ const productsSlice = createSlice({
     moveAllToCart: [],
     searchTerm: "",
     cartTotalQuantity: 0,
-    cartTotalAmount:0,
+    cartTotalAmount: 0,
   },
   reducers: {
     addCartItem(state, action) {
@@ -55,16 +55,12 @@ const productsSlice = createSlice({
         product.quantity -= 1;
       }
     },
-
-    
-
-    
   },
 });
 
 export const {
   addCartItem,
-  
+
   moveAllToCart,
   addFavouriteItem,
   removeAll,
@@ -72,6 +68,6 @@ export const {
   updateCartItemQuantity,
   increaseQuantity,
   decreaseQuantity,
-  getTotals
+  getTotals,
 } = productsSlice.actions;
 export default productsSlice.reducer;

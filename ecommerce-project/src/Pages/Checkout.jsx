@@ -20,6 +20,7 @@ function Checkout() {
     dispatch(decreaseQuantity(title));
   };
   const componentRef = useRef();
+
   return (
     <div>
       <Navbar />
@@ -64,14 +65,14 @@ function Checkout() {
                             incProduct(product.title);
                           }}
                         >
-                          Ʌ
+                  <p className="text-2xl">+</p>
                         </button>
-                        <button
+                        <button  className="h-6 -mt-4 "
                           onClick={() => {
                             decProduct(product.title);
                           }}
                         >
-                          V
+                       <p className="text-4xl">-</p>
                         </button>
                       </div>
                     </div>
